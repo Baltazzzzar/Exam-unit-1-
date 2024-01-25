@@ -39,10 +39,6 @@ void Move()
 {
     // Moves the car 1 cell in the direction it is heading.
 }
-Void AddVisitedCells()
-{
-    // Adds current cell to a list so the Peek function doesnt view it as open
-}
 
 void Turn()
 {

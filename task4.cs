@@ -1,18 +1,16 @@
 
-
 int[] moveCounts = { 4, 4, 1, 1, 3, 1, 5, 3, 1, 1, 2, 1, 1, 2, 5, 1, 1, 2, 3, 3, 1, 2, 3, 3, 5, 1, 4, 1, 1, 1, 2, 1, 4, 2 };
 int[] moveDirections = { 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1 };
 
 public void init()
 {
-    Move();
     for (int i = 0; i < moveCounts.Length; i++)
     {
+        Turn(moveDirections[i])
         for (int j = 0; j < moveCounts[i]; j++)
         {
             Move();
         }
-        Turn(moveDirections[i])
     }
 }
 
