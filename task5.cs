@@ -2,11 +2,12 @@
 bool inGame = true;
 public void Game();
 {
+    Move();
     while (inGame)
     {
         if (!atGoal)
         {
-            if (EmptyCellsAround()) > 1)
+            if (EmptyCellsAround() > 1)
             {
                 if (Peek())
                 {
