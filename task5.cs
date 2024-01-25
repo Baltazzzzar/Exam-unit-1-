@@ -1,3 +1,4 @@
+
 bool inGame = true;
 public void Game();
 {
@@ -5,13 +6,20 @@ public void Game();
     {
         if (!atGoal)
         {
-            if (Peek)
+            if (EmptyCellsAround()) > 1)
             {
-                AddVisitedCells();
-                Move();
+                if (Peek())
+                {
+                    Move();
+                }
+                else
+                {
+                    Turn();
+                }
             }
             else
             {
+                Turn();
                 Turn();
             }
         }
@@ -51,6 +59,11 @@ bool AtGoal()
     // Returns true if the current cell is the goal cell.
     return true; // just a placholder
 }
+int EmptyCellsAround()
+{
+    // Returns amount of empty cells around the car, if there are only 1 empty cell you are in a corner.
+}
 
 #endregion
+
 
