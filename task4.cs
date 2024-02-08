@@ -1,19 +1,34 @@
-
-int[] moveCounts = { 4, 4, 1, 1, 3, 1, 5, 3, 1, 1, 2, 1, 1, 2, 5, 1, 1, 2, 3, 3, 1, 2, 3, 3, 5, 1, 4, 1, 1, 1, 2, 1, 4, 2 };
-int[] moveDirections = { 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1 };
-
-public void init()
+while (!AtGoal())
 {
-    for (int i = 0; i < moveCounts.Length; i++)
+    Turn();
+    if (Peek())
     {
-        Turn(moveDirections[i])
-        for (int j = 0; j < moveCounts[i]; j++)
+        Move();
+    }
+    else
+    {
+        Turn();
+        Turn();
+        if (Peek())
         {
             Move();
         }
+        else
+        {
+            Turn();
+            if (Peek())
+            {
+                Move();
+            }
+            else
+            {
+                Turn();
+                Turn();
+                Move();
+            }
+        }
     }
 }
-
 
 #region Basic functions
 // These functions are just her to make your intelisense work. 
@@ -26,7 +41,20 @@ void Move()
 
 void Turn()
 {
-    // Turns the car 90 deg if the value is 1, turns it 270 degrees if the value is 2.
+    // Turns the car 90 deg clockwise.
+}
+
+bool Peek()
+{
+    // Returns true if the next cell is open, otherwise false.
+    return true; // Just a placeholder value. 
+}
+
+bool AtGoal()
+{
+    // Returns true if the current cell is the goal cell.
+    return true; // just a placholder
 }
 
 #endregion
+

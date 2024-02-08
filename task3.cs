@@ -1,23 +1,31 @@
-bool inGame = true;
-public void Game();
+while (!AtGoal())
 {
-    while (inGame)
+    Turn();
+    if (Peek())
     {
-        if (!atGoal)
+        Move();
+    }
+    else
+    {
+        Turn();
+        Turn();
+        if (Peek())
         {
-            if (Peek)
+            Move();
+        }
+        else
+        {
+            Turn();
+            if (Peek())
             {
-                AddVisitedCells();
                 Move();
             }
             else
             {
                 Turn();
+                Turn();
+                Move();
             }
-        }
-        else
-        {
-            inGame = false;
         }
     }
 }
@@ -29,10 +37,6 @@ public void Game();
 void Move()
 {
     // Moves the car 1 cell in the direction it is heading.
-}
-Void AddVisitedCells()
-{
-    // Adds current cell to a list so the Peek function doesnt view it as open
 }
 
 void Turn()
