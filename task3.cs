@@ -1,29 +1,24 @@
 while (!AtGoal())
 {
-    Turn();
-    if (Peek())
+    if (PeekRight())
     {
         Move();
     }
     else
     {
-        Turn();
-        Turn();
-        if (Peek())
+        if (Peek270())
         {
             Move();
         }
         else
         {
-            Turn();
-            if (Peek())
+            if (Peek270())
             {
                 Move();
             }
             else
             {
-                Turn();
-                Turn();
+                Turn270();
                 Move();
             }
         }
@@ -54,6 +49,25 @@ bool AtGoal()
 {
     // Returns true if the current cell is the goal cell.
     return true; // just a placholder
+}
+
+bool PeekRight()
+{
+    Turn();
+    Peek();
+}
+
+void Turn270()
+{
+    Turn();
+    Turn();
+    Turn();
+}
+
+bool Peek270()
+{
+    Turn270();
+    Peek();
 }
 
 #endregion
